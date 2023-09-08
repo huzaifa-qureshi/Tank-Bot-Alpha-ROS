@@ -65,6 +65,7 @@ all: rosserial/rosserial_vex_cortex/all
 all: rosserial/rosserial_vex_v5/all
 all: rosserial/rosserial_xbee/all
 all: rosserial/rosserial_client/all
+all: 6_wheelbot_control/all
 all: rosserial/rosserial_server/all
 all: rosserial/rosserial_embeddedlinux/all
 all: rosserial/rosserial_test/all
@@ -85,6 +86,7 @@ preinstall: rosserial/rosserial_vex_cortex/preinstall
 preinstall: rosserial/rosserial_vex_v5/preinstall
 preinstall: rosserial/rosserial_xbee/preinstall
 preinstall: rosserial/rosserial_client/preinstall
+preinstall: 6_wheelbot_control/preinstall
 preinstall: rosserial/rosserial_server/preinstall
 preinstall: rosserial/rosserial_embeddedlinux/preinstall
 preinstall: rosserial/rosserial_test/preinstall
@@ -110,12 +112,31 @@ clean: rosserial/rosserial_vex_cortex/clean
 clean: rosserial/rosserial_vex_v5/clean
 clean: rosserial/rosserial_xbee/clean
 clean: rosserial/rosserial_client/clean
+clean: 6_wheelbot_control/clean
 clean: rosserial/rosserial_server/clean
 clean: rosserial/rosserial_embeddedlinux/clean
 clean: rosserial/rosserial_test/clean
 clean: rosserial/rosserial_windows/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory 6_wheelbot_control
+
+# Recursive "all" directory target.
+6_wheelbot_control/all:
+
+.PHONY : 6_wheelbot_control/all
+
+# Recursive "preinstall" directory target.
+6_wheelbot_control/preinstall:
+
+.PHONY : 6_wheelbot_control/preinstall
+
+# Recursive "clean" directory target.
+6_wheelbot_control/clean:
+
+.PHONY : 6_wheelbot_control/clean
 
 #=============================================================================
 # Directory level rules for directory gtest

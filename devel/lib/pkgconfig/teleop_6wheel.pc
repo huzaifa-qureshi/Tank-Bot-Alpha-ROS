@@ -1,0 +1,8 @@
+prefix=/home/usama/mybot_ws/devel
+
+Name: teleop_6wheel
+Description: Description of teleop_6wheel
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

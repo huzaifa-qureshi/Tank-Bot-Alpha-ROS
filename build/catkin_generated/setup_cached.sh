@@ -8,4 +8,3 @@
 
 # modified environment variables
 export PWD='/home/usama/mybot_ws/build'
-export PYTHONPATH="/home/usama/mybot_ws/devel/lib/python3/dist-packages:$PYTHONPATH"

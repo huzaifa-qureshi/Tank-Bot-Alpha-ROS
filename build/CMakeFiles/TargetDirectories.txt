@@ -167,6 +167,13 @@
 /home/usama/mybot_ws/build/rosserial/rosserial_client/CMakeFiles/_run_tests_rosserial_client_gtest_subscriber_test.dir
 /home/usama/mybot_ws/build/rosserial/rosserial_client/CMakeFiles/run_tests_rosserial_client_gtest.dir
 /home/usama/mybot_ws/build/rosserial/rosserial_client/CMakeFiles/run_tests_rosserial_client_gtest_time_test.dir
+/home/usama/mybot_ws/build/6_wheelbot_control/CMakeFiles/install/strip.dir
+/home/usama/mybot_ws/build/6_wheelbot_control/CMakeFiles/install/local.dir
+/home/usama/mybot_ws/build/6_wheelbot_control/CMakeFiles/install.dir
+/home/usama/mybot_ws/build/6_wheelbot_control/CMakeFiles/list_install_components.dir
+/home/usama/mybot_ws/build/6_wheelbot_control/CMakeFiles/rebuild_cache.dir
+/home/usama/mybot_ws/build/6_wheelbot_control/CMakeFiles/edit_cache.dir
+/home/usama/mybot_ws/build/6_wheelbot_control/CMakeFiles/test.dir
 /home/usama/mybot_ws/build/rosserial/rosserial_server/CMakeFiles/install/strip.dir
 /home/usama/mybot_ws/build/rosserial/rosserial_server/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
 /home/usama/mybot_ws/build/rosserial/rosserial_server/CMakeFiles/roscpp_generate_messages_lisp.dir

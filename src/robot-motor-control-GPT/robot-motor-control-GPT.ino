@@ -71,29 +71,29 @@ void loop() {
 
 void moveForward() {
   analogWrite(rm_r_pwm, 0);
-  analogWrite(rm_l_pwm, 180);
-  analogWrite(lm_r_pwm, 180);
+  analogWrite(rm_l_pwm, 255);
+  analogWrite(lm_r_pwm, 255);
   analogWrite(lm_l_pwm, 0);
 }
 
 void moveBackward() {
-  analogWrite(rm_r_pwm, 180);
+  analogWrite(rm_r_pwm, 255);
   analogWrite(rm_l_pwm, 0);
   analogWrite(lm_r_pwm, 0);
-  analogWrite(lm_l_pwm, 180);
+  analogWrite(lm_l_pwm, 255);
 }
 
 void turnRight() {
   analogWrite(rm_r_pwm, 0);
-  analogWrite(rm_l_pwm, 180);
-  analogWrite(lm_r_pwm, 120);
-  analogWrite(lm_l_pwm, 0);
+  analogWrite(rm_l_pwm, 255);
+  analogWrite(lm_r_pwm, 0);
+  analogWrite(lm_l_pwm, 255);
 }
 
 void turnLeft() {
-  analogWrite(rm_r_pwm, 0);
-  analogWrite(rm_l_pwm, 120);
-  analogWrite(lm_r_pwm, 180);
+  analogWrite(rm_r_pwm, 255);
+  analogWrite(rm_l_pwm, 0);
+  analogWrite(lm_r_pwm, 255);
   analogWrite(lm_l_pwm, 0);
 }
 

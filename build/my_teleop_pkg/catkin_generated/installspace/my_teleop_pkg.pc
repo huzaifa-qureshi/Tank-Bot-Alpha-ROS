@@ -1,0 +1,8 @@
+prefix=/home/usama/mybot_ws/install
+
+Name: my_teleop_pkg
+Description: Description of my_teleop_pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs rospy std_msgs
