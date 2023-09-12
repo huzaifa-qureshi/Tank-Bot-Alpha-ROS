@@ -34,13 +34,11 @@ CTRL-C to quit
 """
 
 moveBindings = {
-    's': 0,  # Stop the robot with 's' key
     'w': 1,  # Map 'w' key to move forward
-    'x': 2,  # Map 'x' key to move backward
-    'd': 3,  # Map 'd' key to turn right
+    's': 2,  # Map 'x' key to move backward
     'a': 4,  # Map 'a' key to turn left
-    
-    
+    'd': 3,  # Map 'd' key to turn right
+    'x': 0   # Stop the robot with 's' key
 }
 
 class PublishThread(threading.Thread):
