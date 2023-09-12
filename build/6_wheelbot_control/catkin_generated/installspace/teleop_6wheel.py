@@ -34,11 +34,13 @@ CTRL-C to quit
 """
 
 moveBindings = {
+    's': 0,  # Stop the robot with 's' key
     'w': 1,  # Map 'w' key to move forward
     'x': 2,  # Map 'x' key to move backward
-    'a': 4,  # Map 'a' key to turn left
     'd': 3,  # Map 'd' key to turn right
-    's': 0   # Stop the robot with 's' key
+    'a': 4,  # Map 'a' key to turn left
+    
+    
 }
 
 class PublishThread(threading.Thread):
@@ -48,6 +50,7 @@ class PublishThread(threading.Thread):
         self.data = 0
         self.condition = threading.Condition()
         self.done = False
+        self.current_key = None
 
         self.start()
 
@@ -73,9 +76,6 @@ class PublishThread(threading.Thread):
             self.publisher.publish(self.data)
 
             self.condition.release()
-
-        # Publish stop message when thread exits.
-        self.publisher.publish(0)
 
 def getKey(settings, timeout):
     if sys.platform == 'win32':
@@ -113,22 +113,33 @@ if __name__=="__main__":
         pub_thread.update(0)  # Initialize RPM to 0
         print(msg)
         while not rospy.is_shutdown():
-            key = getKey(settings, 0.1)  # Timeout set to 0.1 seconds
+            key = getKey(settings, 0.5)  # Timeout set to 0.1 seconds
 
             if key in moveBindings.keys():
-                rpm_value = moveBindings[key]
-                pub_thread.update(rpm_value)
+                if pub_thread.current_key != key:
+                    # Key was just pressed, update RPM
+                    rpm_value = moveBindings[key]
+                    rospy.loginfo("Pressed key: %s, RPM value: %d", key, rpm_value)
+                    pub_thread.update(int(rpm_value))  # Convert RPM value to integer
+                    pub_thread.current_key = key
             elif key == 'q':
                 # Increase RPM by 10%
                 rpm_value = max(0, pub_thread.data * 1.1)
-                pub_thread.update(rpm_value)
+                rospy.loginfo("Increased RPM to: %d", rpm_value)
+                pub_thread.update(int(rpm_value))  # Convert RPM value to integer
             elif key == 'z':
                 # Decrease RPM by 10%
                 rpm_value = max(0, pub_thread.data * 0.9)
-                pub_thread.update(rpm_value)
+                rospy.loginfo("Decreased RPM to: %d", rpm_value)
+                pub_thread.update(int(rpm_value))  # Convert RPM value to integer
             elif key == '\x03':
                 # CTRL-C to quit
                 break
+            elif pub_thread.current_key:
+                # Key was released, stop the robot
+                rospy.loginfo("Released key: %s, stopping the robot", pub_thread.current_key)
+                pub_thread.update(0)  # Stop the robot
+                pub_thread.current_key = None
 
     except Exception as e:
         print(e)
@@ -136,3 +147,4 @@ if __name__=="__main__":
     finally:
         pub_thread.stop()
         restoreTerminalSettings(settings)
+
